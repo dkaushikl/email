@@ -37,13 +37,13 @@ router.post("/", (req, res) => {
     .send({
       template: "mars",
       message: {
-        to: "ojha.subham@gmail.com"
+        to: req.body.to
       },
       locals: {
         name: req.body.data
       }
     })
-    .then(tem=>{
+    .then(tem => {
       console.log(tem)
       transporter.sendMail(
         tem.originalMessage,
